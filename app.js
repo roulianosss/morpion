@@ -11,7 +11,7 @@ const winningCombinations = [
 ]
 let currentPlayer = 'X'
 
-const info = document.querySelector('p')
+const info = document.querySelector('.info')
 const gridItems = document.querySelectorAll('.grid-items')
 gridItems.forEach(item => item.addEventListener('click', handleClick))
 
@@ -35,11 +35,10 @@ function checkVictory(){
     }
 }
 
-window.addEventListener('keyup', handleKeyboard)
+const restartBtn = document.querySelector('.restart-btn')
+restartBtn.addEventListener('click', restartGame)
+window.addEventListener('keyup', (e) => e.code === 'Space' ? restartGame : '')
 
-function handleKeyboard(e) {
-    console.log(e.code);
-    if (e.code === "Space"){
-        location.reload()
-    }
+function restartGame() {
+    location.reload()
 }

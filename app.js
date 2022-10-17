@@ -34,3 +34,12 @@ function checkVictory(){
         info.textContent = `Au tour de ${currentPlayer}`
     }
 }
+
+window.addEventListener('keyup', handleKeyboard)
+
+function handleKeyboard(e) {
+    console.log(e.code);
+    if (e.code === "Space"){
+        location.reload()
+    }
+}
